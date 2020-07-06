@@ -1,0 +1,48 @@
+.main__vertical {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  color: white;
+  overflow: hidden;
+}
+
+.main__vertical div {
+  display: inline-block;
+  text-align: center;
+}
+
+.main__vertical div h1 {
+  font-family: "Muli", sans-serif;
+  font-size: 60px;
+  margin: 0;
+}
+
+.main__vertical div p {
+  font-family: "Muli", sans-serif;
+  margin: 0;
+  font-size: 20px;
+}
+
+.animated {
+  animation-duration: 2.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.pulse {
+  animation-name: pulse;
+  animation-duration: 2s;
+}
