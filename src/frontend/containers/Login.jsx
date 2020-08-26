@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
-import { loginRequest } from '../actions';
+import { loginUser } from '../actions';
 import '../assets/styles/components/Login.scss';
 //Imagenes
 import googleIcon from '../assets/static/google-icon.png';
@@ -23,8 +23,7 @@ const Login = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.loginRequest(form);
-    props.history.push('/');
+    props.loginUser(form, '/');
   };
 
   return (
@@ -82,7 +81,7 @@ const Login = (props) => {
 };
 
 const mapDispatchToProps = {
-  loginRequest,
+  loginUser,
 };
 
 export default connect(null, mapDispatchToProps)(Login);

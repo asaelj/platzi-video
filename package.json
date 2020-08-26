@@ -6,16 +6,24 @@
   "scripts": {
     "build": "webpack-cli --config webpack.config.js",
     "start:dev": "nodemon src/server/index",
-    "lint": "eslint src/frontend/ --ext .js --ext .jsx --fix"
+    "lint": "eslint src/frontend/ --ext .js --ext .jsx --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "snapshot:update": "jest --updateSnapshot",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.10.4",
     "@babel/register": "^7.10.4",
+    "@hapi/boom": "^9.1.0",
     "asset-require-hook": "^1.2.0",
+    "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
     "classnames": "^2.2.6",
+    "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "eslint": "^7.1.0",
     "eslint-config-airbnb": "^18.1.0",
@@ -23,11 +31,14 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "helmet": "^3.23.3",
     "history": "^5.0.0",
     "ignore-styles": "^5.0.1",
     "md5": "^2.2.1",
     "nodemon": "^2.0.4",
+    "passport": "^0.4.1",
+    "passport-http": "^0.3.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -36,6 +47,7 @@
     "react-router-config": "^5.1.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "webpack": "^4.43.0",
     "webpack-manifest-plugin": "^2.2.0"
   },
@@ -46,16 +58,30 @@
     "babel-loader": "^8.1.0",
     "compression-webpack-plugin": "^4.0.0",
     "css-loader": "^3.6.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
     "eslint-loader": "^4.0.2",
     "file-loader": "^5.1.0",
+    "jest": "^26.4.2",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
     "react-hot-loader": "^4.12.21",
+    "react-test-renderer": "^16.13.1",
     "sass-loader": "^8.0.2",
     "terser-webpack-plugin": "^3.0.6",
     "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.11.0",
     "webpack-hot-middleware": "^2.25.0"
+  },
+  "jest": {
+    "verbose": true,
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/frontend/__test__/setupTest.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|gif)$": "<rootDir>/src/frontend/__mocks__/fileMock.js",
+      "\\.(scss|css|sass)$": "<rootDir>/src/frontend/__mocks__/styleMock.js"
+    }
   }
 }

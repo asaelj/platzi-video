@@ -28,8 +28,8 @@ const reducer = (state, action) => {
     case 'GET_VIDEOS_SOURCE':
       return {
         ...state,
-        playing: state.trends.find((item) => item.id === Number(action.payload)) ||
-          state.originals.find((item) => item.id === Number(action.payload)) ||
+        playing: state.trends.find((item) => item.id === action.payload) ||
+          state.originals.find((item) => item.id === action.payload) ||
           [],
       };
     case 'GET_VIDEO_SEARCH':

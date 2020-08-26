@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
-import { registerRequest } from '../actions';
+import { registerUser } from '../actions';
 import '../assets/styles/components/Login.scss';
 
 const Register = (props) => {
@@ -20,10 +20,10 @@ const Register = (props) => {
     });
   };
 
-  const handleSumbmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    props.registerRequest(form);
-    props.history.push('/');
+    props.registerUser(form, '/login');
+    //props.history.push('/');
   };
 
   return (
@@ -32,7 +32,7 @@ const Register = (props) => {
       <section className='login'>
         <section className='login__container'>
           <h2 className=''>Regístrate</h2>
-          <form className='login__container--form' onSubmit={handleSumbmit}>
+          <form className='login__container--form' onSubmit={handleSubmit}>
             <input
               name='name'
               type='text'
@@ -66,7 +66,7 @@ const Register = (props) => {
 };
 
 const mapDispatchToProps = {
-  registerRequest,
+  registerUser,
 };
 
 export default connect(null, mapDispatchToProps)(Register);

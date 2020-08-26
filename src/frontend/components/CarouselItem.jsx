@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { setFavorite, deleteFavorite } from '../actions';
+import { addFavorite, removeFavorite } from '../actions';
 import '../assets/styles/components/CarouselItem.scss';
 //Imagenes
 import playIcon from '../assets/static/play-icon.png';
@@ -10,18 +10,18 @@ import plusIcon from '../assets/static/plus-icon.png';
 import removeIcon from '../assets/static/remove-icon.png';
 
 const CarouselItem = (props) => {
-  const { id, cover, title, year, contentRating, duration, isList } = props;
+  const { _id, id, cover, title, year, contentRating, duration, userMovieId, isList } = props;
 
   const handleSetFavorite = () => {
-    props.setFavorite(
+    props.addFavorite(
       {
-        id, cover, title, year, contentRating, duration,
+        _id, id, cover, title, year, contentRating, duration, userMovieId,
       },
     );
   };
 
   const handleDeleteFavorite = () => {
-    props.deleteFavorite(id);
+    props.removeFavorite(userMovieId, id);
   };
 
   return (
@@ -63,7 +63,8 @@ const CarouselItem = (props) => {
 };
 
 CarouselItem.propTypes = {
-  id: PropTypes.number,
+  _id: PropTypes.string,
+  id: PropTypes.string,
   cover: PropTypes.string,
   title: PropTypes.string,
   year: PropTypes.number,
@@ -72,8 +73,8 @@ CarouselItem.propTypes = {
 };
 
 const mapDispachToProps = {
-  setFavorite,
-  deleteFavorite,
+  addFavorite,
+  removeFavorite,
 };
 
 export default connect(null, mapDispachToProps)(CarouselItem);

@@ -76,20 +76,21 @@
   text-align: center;
 }
 
-// .input {
-//   color: #ffffff;
-//   background-color: transparent;
-//   // border-left: 0;
-//   // border-right: 0;
-//   // border-top: 0;
-//   border-bottom: 2px solid #ffffff;
-//   font-family: "Muli", sans-serif;
-//   font-size: 16px;
-//   margin-bottom: 20px;
-//   padding: 0 20px;
-//   outline: none;
-//   height: 50px;
-// }
+.login__container--form .input {
+  color: #ffffff;
+  width: 100%;
+  background-color: transparent;
+  // border-left: 0;
+  // border-right: 0;
+  // border-top: 0;
+  border-bottom: 2px solid #ffffff;
+  font-family: "Muli", sans-serif;
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  outline: none;
+  height: 50px;
+}
 
 .input::placeholder {
   color: #ffffff;
